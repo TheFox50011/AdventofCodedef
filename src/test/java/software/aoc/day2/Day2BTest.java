@@ -1,32 +1,31 @@
-package software.aoc.day1;
+package software.aoc.day2;
 
 import org.junit.jupiter.api.Test;
-import software.aoc.day1.a.SolveDay1A;
+import software.aoc.day2.a.SolveDay2A;
+import software.aoc.day2.b.SolveDay2B;
 
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-class Day1ATest {
-
+public class Day2BTest {
     @Test
     void testCalculatePasswordWithInputFile() {
         // 1. Definir la ruta al archivo.
-        String rutaArchivo = "src/test/resources/Day01input.txt";
+        String rutaArchivo = "src/test/resources/Day02input.txt";
 
         // 2. Cargar las rotaciones
         // Nota: Si el archivo no existe, esto lanzará la RuntimeException que definiste
-        List<String> inputData = SolveDay1A.LoadRotations(rutaArchivo);
+        String inputData = SolveDay2B.loadInput(rutaArchivo);
 
         // Verificación básica de que se leyó algo
         assertNotNull(inputData, "La lista no debería ser nula");
         assertFalse(inputData.isEmpty(), "El archivo de input no debería estar vacío");
 
         // 3. Ejecutar la lógica principal
-        int resultado = SolveDay1A.CalculatePassword(inputData);
+        long resultado = SolveDay2B.calculateInvalidIdsSum(inputData);
 
         // 4. Imprimir el resultado en consola
         System.out.println("--------------------------------------------------");
-        System.out.println("El resultado del password para input.txt es: " + resultado);
+        System.out.println("El valor de la suma de las id  invalidas es: " + resultado);
         System.out.println("--------------------------------------------------");
 
         // 5. Comprobar que da el resutlado deseado

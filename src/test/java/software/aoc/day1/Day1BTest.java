@@ -1,7 +1,9 @@
 package software.aoc.day1;
 
 import org.junit.jupiter.api.Test;
+import software.aoc.day1.a.SolveDay1A;
 import software.aoc.day1.b.SolveDay1B;
+import software.aoc.day2.a.SolveDay2A;
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class Day1BTest {
     @Test
     void testCalculatePasswordWithInputFile() {
         // 1. Definir la ruta al archivo.
-        String rutaArchivo = "src/test/resources/input.txt";
+        String rutaArchivo = "src/test/resources/Day01input.txt";
 
         // 2. Cargar las rotaciones
         // Nota: Si el archivo no existe, esto lanzará la RuntimeException que definiste
