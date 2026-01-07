@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SolveDay1A {
 
-    public static List<String> loadRotations(String filePath) {
+    public static List<String> LoadRotations(String filePath) {
         try {
             return Files.readAllLines(Path.of(filePath));
         } catch (IOException e) {
@@ -15,7 +15,7 @@ public class SolveDay1A {
         }
     }
 
-    public static int calculatePassword(List<String> rotations) {
+    public static int CalculatePassword(List<String> rotations) {
         int position = 50;
         int zeroHits = 0;
 
