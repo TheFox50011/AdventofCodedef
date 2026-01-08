@@ -8,10 +8,10 @@ public class MainDay5B {
     public static void main(String[] args) {
 
         // Cargar input
-        List<String> rotations = SolveDay5A.loadGrid("input.txt");
+        List<String> rotations = SolveDay5A.loadCode("input.txt");
 
         // Calcular resultado
-        long result = SolveDay5A.countAccessibleRolls(rotations);
+        long result = SolveDay5A.calculateFreshIngredients(rotations);
 
         // Imprimir resultado
         System.out.println("Password: " + result);

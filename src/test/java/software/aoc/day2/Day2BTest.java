@@ -25,7 +25,7 @@ public class Day2BTest {
 
         // 4. Imprimir el resultado en consola
         System.out.println("--------------------------------------------------");
-        System.out.println("El valor de la suma de las id  invalidas es: " + resultado);
+        System.out.println("El valor  es: " + resultado);
         System.out.println("--------------------------------------------------");
 
         // 5. Comprobar que da el resutlado deseado

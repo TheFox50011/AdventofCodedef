@@ -26,7 +26,7 @@ class Day1ATest {
 
         // 4. Imprimir el resultado en consola
         System.out.println("--------------------------------------------------");
-        System.out.println("El resultado del password para input.txt es: " + resultado);
+        System.out.println("El resultado es: " + resultado);
         System.out.println("--------------------------------------------------");
 
         // 5. Comprobar que da el resutlado deseado

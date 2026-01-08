@@ -27,7 +27,7 @@ public class Day4ATest {
 
         // 4. Imprimir el resultado en consola
         System.out.println("--------------------------------------------------");
-        System.out.println("El valor de la suma es: " + resultado);
+        System.out.println("El valor  es: " + resultado);
         System.out.println("--------------------------------------------------");
 
         // 5. Comprobar que da el resutlado deseado
