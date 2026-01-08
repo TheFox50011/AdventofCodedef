@@ -17,14 +17,14 @@ public class Day4BTest {
 
         // 2. Cargar las rotaciones
         // Nota: Si el archivo no existe, esto lanzará la RuntimeException que definiste
-        List<String > inputData = SolveDay4B.loadGrid(rutaArchivo);
+        List<String > inputData = SolveDay4B.LoadCode(rutaArchivo);
 
         // Verificación básica de que se leyó algo
         assertNotNull(inputData, "La lista no debería ser nula");
         assertFalse(inputData.isEmpty(), "El archivo de input no debería estar vacío");
 
         // 3. Ejecutar la lógica principal
-        long resultado = SolveDay4B.countAccessibleRolls(inputData);
+        long resultado = SolveDay4B.calculateTotalRolls(inputData);
 
         // 4. Imprimir el resultado en consola
         System.out.println("--------------------------------------------------");
