@@ -1,14 +1,13 @@
-package software.aoc.day4;
+package software.aoc.day5;
 
 import org.junit.jupiter.api.Test;
-import software.aoc.day3.b.SolveDay3B;
 import software.aoc.day4.b.SolveDay4B;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Day4BTest {
+public class Day5BTest {
 
     @Test
     void testCalculatePasswordWithInputFile() {
