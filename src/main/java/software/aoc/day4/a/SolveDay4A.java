@@ -4,8 +4,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class SolveDay4A {
+    private static final int MAX_NEIGHBORS_FOR_ACCESS = 4;
+    private static final char TARGET_CHAR = '@';
+    private static final int[][] DIRECTIONS = {
+            {-1, -1}, {-1, 0}, {-1, 1},
+            { 0, -1},          { 0, 1},
+            { 1, -1}, { 1, 0}, { 1, 1}
+    };
+
     public static List<String> loadGrid(String filePath) {
         try {
             return Files.readAllLines(Path.of(filePath));
@@ -17,44 +26,36 @@ public class SolveDay4A {
     public static int countAccessibleRolls(List<String> grid) {
         int rows = grid.size();
         int cols = grid.get(0).length();
-        int accessible = 0;
 
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (grid.get(row).charAt(col) == '@') {
-                    int adjacentRolls = countAdjacentRolls(grid, row, col);
-                    if (adjacentRolls < 4) {
-                        accessible++;
-                    }
-                }
-            }
-        }
-        return accessible;
+        return (int) IntStream.range(0, rows)
+                .boxed()
+                .flatMap(r -> IntStream.range(0, cols).mapToObj(c -> new int[]{r, c})) // Generar coordenadas [r, c]
+                .filter(pos -> isAccessible(grid, pos[0], pos[1])) // Filtrar los válidos
+                .count(); // Contar
     }
 
-    private static int countAdjacentRolls(List<String> grid, int row, int col) {
-        int count = 0;
+        private static boolean isAccessible(List<String> grid, int r, int c) {
+            if (grid.get(r).charAt(c) != TARGET_CHAR) {
+                return false;
+            }
 
-        for (int dr = -1; dr <= 1; dr++) {
-            for (int dc = -1; dc <= 1; dc++) {
-                if (dr == 0 && dc == 0) continue;
+            return countNeighbors(grid, r, c) < MAX_NEIGHBORS_FOR_ACCESS;
+        }
 
-                int newRow = row + dr;
-                int newCol = col + dc;
-
-                if (isInsideGrid(grid, newRow, newCol)
-                        && grid.get(newRow).charAt(newCol) == '@') {
+        private static int countNeighbors(List<String> grid, int row, int col) {
+            int count = 0;
+            for (int[] dir : DIRECTIONS) {
+                if (isOccupied(grid, row + dir[0], col + dir[1])) {
                     count++;
                 }
             }
+            return count;
         }
-        return count;
-    }
 
-    private static boolean isInsideGrid(List<String> grid, int row, int col) {
-        return row >= 0
-                && row < grid.size()
-                && col >= 0
-                && col < grid.get(0).length();
+        private static boolean isOccupied(List<String> grid, int r, int c) {
+            if (r < 0 || r >= grid.size() || c < 0 || c >= grid.get(0).length()) {
+                return false;
+            }
+            return grid.get(r).charAt(c) == TARGET_CHAR;
+        }
     }
-}

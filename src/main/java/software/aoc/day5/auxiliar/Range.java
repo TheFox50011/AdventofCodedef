@@ -1,8 +1,8 @@
-package software.aoc.day5.b;
+package software.aoc.day5.auxiliar;
 
 import java.util.Objects;
 
-// Debe ser public para ser visible en day5.a y day5.b
+
 public class Range implements Comparable<Range> {
     private final long start;
     private final long end;
@@ -12,7 +12,7 @@ public class Range implements Comparable<Range> {
         this.end = end;
     }
 
-    // --- Métodos para Parte A ---
+
 
     public boolean contains(long value) {
         return value >= start && value <= end;
@@ -23,7 +23,7 @@ public class Range implements Comparable<Range> {
         return new Range(Long.parseLong(parts[0]), Long.parseLong(parts[1]));
     }
 
-    // --- Métodos para Parte B ---
+
 
     public long size() {
         return end - start + 1;

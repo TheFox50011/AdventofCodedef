@@ -1,5 +1,7 @@
 package software.aoc.day5.a;
 
+import software.aoc.day5.auxiliar.Range;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,7 +32,7 @@ public class SolveDay5A {
         for (String line : lines) {
             String trimmed = line.trim();
 
-            // La línea vacía indica el cambio de sección
+
             if (trimmed.isEmpty()) {
                 parsingRanges = false;
                 continue;

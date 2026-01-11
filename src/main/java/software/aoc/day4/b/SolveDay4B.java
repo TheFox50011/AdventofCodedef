@@ -4,84 +4,96 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SolveDay4B {
-        public static List<String> LoadCode(String filePath) {
-            try {
-                return Files.readAllLines(Path.of(filePath));
-            } catch (IOException e) {
-                throw new RuntimeException("Error reading input file: " + filePath, e);
+    private static final char ROLL_CHAR = '@';
+    private static final char EMPTY_CHAR = '.';
+    private static final int MAX_NEIGHBORS_TO_SURVIVE = 4;
+    private static final int[][] NEIGHBOR_DIRECTIONS = {
+            {-1, -1}, {-1, 0}, {-1, 1},
+            { 0, -1},          { 0, 1},
+            { 1, -1}, { 1, 0}, { 1, 1}
+    };
+    public static List<String> LoadCode(String filePath) {
+        try {
+            return Files.readAllLines(Path.of(filePath));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading input file: " + filePath, e);
+        }
+    }
+
+    public static int calculateTotalRolls(List<String> input) {
+        if (input == null || input.isEmpty()) return 0;
+        char[][] grid = initializeGrid(input);
+        int totalRemoved = 0;
+
+        while (true) {
+            List<int[]> itemsToRemove = identifyRemovableItems(grid);
+
+            if (itemsToRemove.isEmpty()) {
+                break;
             }
+
+            removeItems(grid, itemsToRemove);
+
+            totalRemoved += itemsToRemove.size();
         }
 
-        public static int calculateTotalRolls(List<String> input) {
-            if (input == null || input.isEmpty()) {
-                return 0;
-            }
+        return totalRemoved;
+    }
 
-            int rows = input.size();
-            int cols = input.get(0).length();
-            char[][] grid = new char[rows][cols];
-
-            // Inicializar el grid
-            for (int i = 0; i < rows; i++) {
-                grid[i] = input.get(i).toCharArray();
-            }
-
-            int totalRemoved = 0;
-            boolean changed = true;
-
-            // Repetir el proceso mientras se puedan eliminar rollos
-            while (changed) {
-                List<int[]> toRemove = new ArrayList<>();
-
-                // Paso 1: Identificar todos los rollos accesibles en el estado actual
-                for (int r = 0; r < rows; r++) {
-                    for (int c = 0; c < cols; c++) {
-                        if (grid[r][c] == '@') {
-                            // La regla: accesible si tiene MENOS de 4 vecinos que sean rollos
-                            if (countAdjacentRolls(grid, r, c, rows, cols) < 4) {
-                                toRemove.add(new int[]{r, c});
-                            }
-                        }
-                    }
-                }
-
-                // Paso 2: Si no hay nada que eliminar, terminamos
-                if (toRemove.isEmpty()) {
-                    changed = false;
-                } else {
-                    // Paso 3: Eliminar los rollos identificados y sumar al total
-                    totalRemoved += toRemove.size();
-                    for (int[] pos : toRemove) {
-                        grid[pos[0]][pos[1]] = '.'; // Marcar como eliminado (espacio vacío)
-                    }
-                }
-            }
-
-            return totalRemoved;
+    private static char[][] initializeGrid(List<String> input) {
+        int rows = input.size();
+        int cols = input.get(0).length();
+        char[][] grid = new char[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            grid[i] = input.get(i).toCharArray();
         }
+        return grid;
+    }
 
-        // Cuenta los rollos ('@') en las 8 celdas adyacentes
-        private static int countAdjacentRolls(char[][] grid, int r, int c, int rows, int cols) {
-            int count = 0;
-            // Revisar los 8 vecinos (incluyendo diagonales)
-            for (int dr = -1; dr <= 1; dr++) {
-                for (int dc = -1; dc <= 1; dc++) {
-                    if (dr == 0 && dc == 0) continue; // Saltar la propia celda
 
-                    int nr = r + dr;
-                    int nc = c + dc;
+    private static List<int[]> identifyRemovableItems(char[][] grid) {
+        List<int[]> toRemove = new ArrayList<>();
+        int rows = grid.length;
+        int cols = grid[0].length;
 
-                    // Verificar límites del grid
-                    if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
-                        if (grid[nr][nc] == '@') {
-                            count++;
-                        }
-                    }
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (shouldBeRemoved(grid, r, c)) {
+                    toRemove.add(new int[]{r, c});
                 }
             }
-            return count;
         }
+        return toRemove;
+    }
+
+    private static void removeItems(char[][] grid, List<int[]> itemsToRemove) {
+        for (int[] pos : itemsToRemove) {
+            grid[pos[0]][pos[1]] = EMPTY_CHAR;
+        }
+    }
+
+
+    private static boolean shouldBeRemoved(char[][] grid, int r, int c) {
+        if (grid[r][c] != ROLL_CHAR) {
+            return false;
+        }
+        return countNeighbors(grid, r, c) < MAX_NEIGHBORS_TO_SURVIVE;
+    }
+
+    private static int countNeighbors(char[][] grid, int r, int c) {
+        return (int) Arrays.stream(NEIGHBOR_DIRECTIONS)
+                .filter(dir -> isOccupied(grid, r + dir[0], c + dir[1]))
+                .count();
+    }
+
+    private static boolean isOccupied(char[][] grid, int r, int c) {
+        if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length) {
+            return false;
+        }
+        return grid[r][c] == ROLL_CHAR;
+    }
     }

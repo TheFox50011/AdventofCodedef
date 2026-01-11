@@ -18,8 +18,6 @@ public class SolveDay6B {
 
     public static long calculateGrandTotal(List<String> lines) {
         if (lines.isEmpty()) return 0;
-
-        // Determinar el ancho máximo para poder iterar columnas
         int maxWidth = lines.stream()
                 .mapToInt(String::length)
                 .max()
@@ -29,20 +27,16 @@ public class SolveDay6B {
         int col = 0;
 
         while (col < maxWidth) {
-            // 1. Saltar columnas vacías (separadores)
             if (isColumnEmpty(lines, col)) {
                 col++;
                 continue;
             }
 
-            // 2. Identificar el rango de columnas del problema actual
             int startCol = col;
             while (col < maxWidth && !isColumnEmpty(lines, col)) {
                 col++;
             }
             int endCol = col;
-
-            // 3. Resolver el bloque identificado
             problemResults.add(solveBlock(lines, startCol, endCol));
         }
 

@@ -1,5 +1,7 @@
 package software.aoc.day5.b;
 
+import software.aoc.day5.auxiliar.Range;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,13 +22,10 @@ public class SolveDay5B {
         public static long calculateTotalFreshIngredients(List<String> lines) {
             List<Range> ranges = parseRanges(lines);
 
-            // 1. Ordenar rangos por su punto de inicio
             Collections.sort(ranges);
 
-            // 2. Fusionar rangos superpuestos
             List<Range> mergedRanges = mergeRanges(ranges);
 
-            // 3. Sumar el tamaño de los rangos resultantes
             return calculateTotalSize(mergedRanges);
         }
 
@@ -35,7 +34,7 @@ public class SolveDay5B {
             for (String line : lines) {
                 String trimmed = line.trim();
                 if (trimmed.isEmpty()) {
-                    break; // La segunda sección (IDs sueltos) ya no es relevante
+                    break;
                 }
                 ranges.add(Range.fromString(trimmed));
             }
@@ -52,15 +51,15 @@ public class SolveDay5B {
                 Range next = sortedRanges.get(i);
 
                 if (current.overlapsOrAdjoins(next)) {
-                    // Si se solapan, extendemos el rango actual
+
                     current = current.merge(next);
                 } else {
-                    // Si no, guardamos el actual y empezamos uno nuevo
+
                     merged.add(current);
                     current = next;
                 }
             }
-            // No olvidar añadir el último rango
+
             merged.add(current);
 
             return merged;
