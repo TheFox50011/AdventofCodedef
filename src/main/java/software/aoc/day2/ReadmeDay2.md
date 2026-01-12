@@ -32,8 +32,10 @@ cada intervalo numérico sin exponer la lógica de cómo se dividió la cadena o
 -------------------------------------------------------------------------------------------------------------------------------------
 DISEÑOS
 -------------------------------------------------------------------------------------------------------------------------------------
-*Abstracción: SolveDay2A expone solo lo esencial (calculateInvalidIdsSum), ocultando la lógica de validación del ID mediante un método private (isInvalidId).
-*Modularidad: El código está dividido en clases con responsabilidades únicas (Main para ejecución, Solve para lógica), facilitando el mantenimiento.
+*Abstracción: SolveDay2A expone solo lo esencial (calculateInvalidIdsSum), ocultando la lógica de validación
+del ID mediante un método private (isInvalidId).
+*Modularidad: El código está dividido en clases con responsabilidades únicas (Main para ejecución, Solve para lógica)
+facilitando el mantenimiento.
 *Clean Code: Uso de nombres descriptivos (start, end, first, second) que explican la intención de partir el número en dos mitades.
 --------------------------------------------------------------------------------------------------------------------------
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -73,14 +75,6 @@ El método público calculateInvalidIdsSum no cambia respecto a la Parte A, demo
 *Codigo Expresivo: El uso de StringBuilder y variables como blockSize ayudan a entender que se está reconstruyendo el patrón para compararlo.
 *Alta Cohesión: La clase SolveDay2B se encarga únicamente de la lógica de negocio de los IDs.
 -------------------------------------------------------------------------------------------------------------------------------------
--FUNDAMENTOS DE DISEÑO
--------------------------------------------------------------------------------------------------------------------------------------
-*Abstracción: La complejidad algorítmica de buscar patrones repetitivos se oculta completamente dentro del método privado 'isInvalidId'.
-El método público 'calculateInvalidIdsSum' no cambia respecto a la Parte A, demostrando buena abstracción.
-*Modularidad: Existe una separación clara entre la entrada de datos (loadInput), el orquestador (Main) y la lógica de negocio (SolveDay2), permitiendo que cada parte evolucione por separado.
-*Alta Cohesión: La clase 'SolveDay2B' se enfoca en una única tarea: validar y sumar IDs. No se mezcla con la impresión por consola ni con la lógica de otros días.
-
--------------------------------------------------------------------------------------------------------------------------------------
 -PRINCIPIOS DE DISEÑO
 -------------------------------------------------------------------------------------------------------------------------------------
 *SRP (Principio de Responsabilidad Única): Cada clase tiene una única razón para cambiar.
@@ -90,7 +84,7 @@ El método público 'calculateInvalidIdsSum' no cambia respecto a la Parte A, de
   *DRY (Don't Repeat Yourself): Aunque 'loadInput' aparece en ambas clases (A y B) por ser ejercicios aislados, internamente se reutiliza la lógica de validación para cada ID dentro del bucle, evitando duplicar el código de chequeo.
 
 --------------------------------------------------------------------------------------------------------------------------
--DISEÑO DE CÓDIGO (CLEAN CODE)
+-DISEÑO DE CÓDIGO 
 --------------------------------------------------------------------------------------------------------------------------
 *Nomenclatura Intencional: Variables como 'blockSize', 'repetitions' o 'repeated' comunican claramente la intención del algoritmo de reconstrucción de cadenas.
 *Funciones Pequeñas: Los métodos se mantienen cortos y enfocados, facilitando su lectura y testeo.

@@ -14,7 +14,7 @@ Al ser un codigo tan simple es complicado aplicar varios patrones tanto estructu
 -------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES CREACIONALES
 -------------------------------------------------------------------------------------------------------------------------------------
-*Static Factory Method:  en el metodo LoadRotations. En lugar de instanciar un lector de archivos directamente en el main, 
+*Factory Method:  en el metodo LoadRotations. En lugar de instanciar un lector de archivos directamente en el main, 
 pasamos la creación de la lista de datos a un método estático que encapsula la E/S.
 --------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES COMPORTAMIENTO
@@ -84,7 +84,7 @@ En esta Parte lo podemos encontrar en en el método privado moveOneClick.
 'SolveDay1': Su única razón para cambiar es si varían las reglas matemáticas del movimiento (ej. si el dial cambia de tamaño 100 a 200).
 *DRY (Don't Repeat Yourself): La lógica matemática de la rotación (sumar/restar y aplicar módulo) está encapsulada en 
     un único método privado ('applyRotation' en Parte A, 'moveOneClick' en Parte B). El bucle principal reutiliza esta lógica en cada iteración en lugar de duplicar la fórmula.
-*KISS (Keep It Simple, Stupid): Se ha evitado la sobre-ingeniería.
-    En lugar de crear una jerarquía de clases para 'Direction' (con polimorfismo para Izquierda/Derecha), se utiliza un simple 'switch expression' con tipos primitivos ('char', 'int'), lo cual es suficiente y más eficiente para este problema.
+*KISS (Keep It Simple, Stupid):En lugar de crear una jerarquía de clases para 'Direction' (con polimorfismo para Izquierda/Derecha)
+se utiliza un simple 'switch expression' con tipos primitivos('char', 'int'), lo cual es suficiente y más eficiente para este problema.
 *YAGNI (You Aren't Gonna Need It): El código no implementa validaciones o estructuras para casos no solicitados 
     (como movimientos diagonales o diales multidimensionales), manteniéndose fiel a los requisitos exactos del enunciado.

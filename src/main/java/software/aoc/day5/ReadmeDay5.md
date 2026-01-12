@@ -21,8 +21,8 @@ El diseño destaca por la extracción de la lógica de dominio a una clase comú
 --------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES COMPORTAMIENTO
 -------------------------------------------------------------------------------------------------------------------------------------
-*Streams (Pipeline): Uso declarativo de `filter` y `anyMatch` para procesar la lista de IDs contra los rangos.
-*Strategy (Implícito): La lógica de validación `range.contains(id)` actúa como la estrategia de filtrado intercambiable.
+*Streams : Uso declarativo de `filter` y `anyMatch` para procesar la lista de IDs contra los rangos.
+*Strategy : La lógica de validación `range.contains(id)` actúa como la estrategia de filtrado intercambiable.
 ---------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES ESTRUCTURAL
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -59,10 +59,10 @@ Se aprovecha la reutilización de la clase `Range` común, extendiendo su uso co
 --------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES COMPORTAMIENTO
 -------------------------------------------------------------------------------------------------------------------------------------
-*Comparable: La clase `Range` implementa `Comparable<Range>`, permitiendo el uso de `Collections.sort()` basado en el "orden natural" (inicio del rango) sin necesidad de comparadores externos.
+*Comparable: La clase `Range` implementa `Comparable<Range>` permitiendo el uso de `Collections.sort()` basado en el "orden natural" (inicio del rango) sin necesidad de comparadores externos.
 *Iterator: Uso explícito en el algoritmo de fusión para recorrer la lista ordenada y comparar secuencialmente el elemento `current` con `next`.
 ---------------------------------------------------------------------------------------------------------------------------------------
--PATRONES ESTRUCTURAL
+-PATRONES ESTRUCTURAL   
 -------------------------------------------------------------------------------------------------------------------------------------
 *Adapter: Encapsulamiento de excepciones en la lectura de archivos.
 

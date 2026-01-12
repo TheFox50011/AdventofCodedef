@@ -5,9 +5,9 @@ PARTE A
 -------------------
 BASE DEL PROBLEMA
 -------------------
-Este paquete contiene una solución en Java para un reto algorítmico basado en la conectividad de redes en un espacio tridimensional.
+Este paquete contiene una solución en Java para un reto algorítmico del AOC basado en la conectividad de redes en un espacio tridimensional.
 El objetivo es procesar una lista de coordenadas (x, y, z) que representan nodos y agruparlos en circuitos conectados.
-La lógica de conexión es "codiciosa" (Greedy): se priorizan las conexiones entre los puntos más cercanos entre sí.
+La lógica de conexión es "voraz" (Greedy): se priorizan las conexiones entre los puntos más cercanos entre sí.
 En esta parte, se procesan un número limitado de conexiones (1000) y se busca el producto del tamaño de los tres grupos 
 (circuitos) más grandes resultantes.
 ------------------------------

@@ -35,15 +35,13 @@ public class SolveDay7A {
 
                 char cell = row.charAt(col);
 
-                // REFACTORIZACIÓN A SWITCH
+
                 switch (cell) {
                     case '^' -> {
-                        // Caso Splitter: Divide y cuenta
                         totalSplits++;
                         if (col - 1 >= 0) nextRowBeams.add(col - 1);
                         if (col + 1 < cols) nextRowBeams.add(col + 1);
                     }
-                    // Caso Default: Espacio (.) o Inicio (S) -> Sigue recto
                     default -> nextRowBeams.add(col);
                 }
             }

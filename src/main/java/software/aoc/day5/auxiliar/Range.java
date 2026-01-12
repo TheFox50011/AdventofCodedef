@@ -30,7 +30,6 @@ public class Range implements Comparable<Range> {
     }
 
     public boolean overlapsOrAdjoins(Range other) {
-        // Verifica si se tocan o solapan (ej: 3-5 y 6-8 están conectados)
         return this.start <= other.end + 1 && other.start <= this.end + 1;
     }
 
@@ -45,7 +44,7 @@ public class Range implements Comparable<Range> {
         return Long.compare(this.start, other.start);
     }
 
-    // Equals/HashCode/ToString para depuración y buenas prácticas
+
     @Override
     public String toString() {
         return start + "-" + end;

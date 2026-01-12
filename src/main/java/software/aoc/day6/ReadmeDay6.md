@@ -6,9 +6,9 @@ BASE DEL PROBLEMA
 -------------------
 Este paquete contiene una solución en Java para un reto algorítmico de Advent centrado en el análisis sintáctico (Parsing)
 de expresiones matemáticas no convencionales.
-El objetivo es procesar un texto donde múltiples operaciones matemáticas están dispuestas visualmente en columnas o bloques 
+El objetivo es procesar un texto donde múltiples operaciones matemáticas están dispuestas en columnas o bloques 
 separados por espacios vacíos.
-En esta parte, el algoritmo debe identificar los límites de cada "problema" (conjunto de columnas contiguas),
+En esta parte el algoritmo debe identificar los límites de cada "problema" (conjunto de columnas contiguas)
 extraer los tokens (números y operadores '+' o '*') y calcular el resultado acumulado de todas las operaciones.
 ------------------------------
 PATRONES Y DISEÑOS UTILIZADOS
@@ -49,7 +49,7 @@ ignorando los detalles de cómo se extrae texto de una cuadrícula de caracteres
 -------------------------------------------------------------------------------------------------------------------------------------
 PARTE B
 -------------------------------------------------------------------------------------------------------------
-La estructura visual de los bloques se mantiene (columnas separadas por espacios), pero la semántica de lectura cambia radicalmente.
+La estructura visual de los bloques se mantiene (columnas separadas por espacios) pero la semántica de lectura cambia radicalmente.
 Ahora, los números no se leen horizontalmente línea por línea, sino **verticalmente** columna por columna dentro de cada bloque.
 El dígito más significativo está arriba y el menos significativo abajo.
 Esto requiere reescribir la lógica de parsing para iterar primero por columnas (x) y luego por filas (y),
@@ -66,7 +66,8 @@ eliminando la clase intermedia para un procesamiento más directo y eficiente.
 --------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES COMPORTAMIENTO
 -------------------------------------------------------------------------------------------------------------------------------------
-*Iterator: Uso explícito y anidado de bucles para recorrer la matriz de caracteres en el orden específico (columna-major order) requerido para reconstruir los números verticales.
+*Iterator: Uso explícito y anidado de bucles para recorrer la matriz de caracteres en el orden específico (columna-major order)
+requerido para reconstruir los números verticales.
 ---------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES ESTRUCTURAL
 -------------------------------------------------------------------------------------------------------------------------------------

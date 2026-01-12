@@ -4,7 +4,8 @@ PARTE A
 -------------------
 BASE DEL PROBLEMA
 -------------------
-Este paquete contiene una solución en Java para un reto de simulación de partículas o haces de luz en una cuadrícula.
+Este paquete contiene una solución en Java para un reto deL Advent of code el cual es una simulación de partículas 
+o haces de luz en una cuadrícula.
 El objetivo es simular el descenso de "haces" que comienzan en posiciones marcadas con 'S'.
 Las reglas de la física de este mundo son:
 1. El haz desciende fila por fila.
@@ -51,14 +52,15 @@ PARTE B
 -------------------------------------------------------------------------------------------------------------
 El problema cambia conceptualmente de "dónde están los haces" a "cuántas líneas temporales existen".
 Cada vez que un haz se divide, el número de líneas temporales se duplica. Dado que esto crece exponencialmente (2^n),
-una simulación paso a paso como en la Parte A sería intratable.
+una simulación paso a paso como en la Parte A no seria posible.
 La solución implementa **Programación Dinámica (Dynamic Programming)**: en lugar de rastrear cada haz individual, 
 contamos *cuántos* haces llegan a cada celda `(r, c)` acumulando los valores de la fila anterior.
 El objetivo es sumar todas las líneas temporales que logran "salir" del grid.
 ------------------------------
 PATRONES Y DISEÑOS UTILIZADOS
 ------------------------------
-Se reemplaza la colección de objetos (`Set`) por una matriz numérica de acumulación (`long[][]`), optimizando el rendimiento, manteniendo la coherencia estructural con la Parte A mediante el uso de `switch`.
+Se reemplaza la colección de objetos (`Set`) por una matriz numérica de acumulación (`long[][]`)
+optimizando el rendimiento, manteniendo la coherencia estructural con la Parte A mediante el uso de `switch`.
 -------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES CREACIONALES
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -101,4 +103,4 @@ y directa de implementar DP para una cuadrícula.
 *Código Expresivo (Switch Expressions): El uso de `switch (tile) { case '^' -> ... }` hace que la intención del código 
 sea inmediatamente obvia: estamos despachando lógica basada en el tipo de baldosa.
 *Consistencia: Ambas partes (A y B) utilizan la misma estructura de control para resolver la lógica de obstáculos, 
-facilitando la lectura cruzada.
+facilitando la lectura.

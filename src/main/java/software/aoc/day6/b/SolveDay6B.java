@@ -45,7 +45,7 @@ public class SolveDay6B {
 
     private static boolean isColumnEmpty(List<String> lines, int col) {
         for (String line : lines) {
-            // Si la línea es corta, asumimos espacio en esa posición
+
             if (col < line.length() && line.charAt(col) != ' ') {
                 return false;
             }
@@ -57,7 +57,7 @@ public class SolveDay6B {
         List<Long> numbers = new ArrayList<>();
         char operator = '?'; // Placeholder
 
-        // Iterar columna por columna dentro del bloque
+
         for (int c = startCol; c < endCol; c++) {
             StringBuilder numBuilder = new StringBuilder();
 
@@ -66,7 +66,7 @@ public class SolveDay6B {
 
                 char ch = line.charAt(c);
                 if (Character.isDigit(ch)) {
-                    // Construir número verticalmente: dígito más significativo arriba
+
                     numBuilder.append(ch);
                 } else if (ch == '+' || ch == '*') {
                     operator = ch;
