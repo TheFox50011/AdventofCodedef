@@ -13,7 +13,7 @@ public class CircuitManager {
     public CircuitManager(int n) {
         parent = new int[n];
         size = new int[n];
-        componentCount = n; // Al inicio, cada nodo es un componente
+        componentCount = n;
         for (int i = 0; i < n; i++) {
             parent[i] = i;
             size[i] = 1;

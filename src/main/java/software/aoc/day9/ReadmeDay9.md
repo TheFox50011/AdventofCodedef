@@ -49,9 +49,9 @@ PARTE B
 -------------------------------------------------------------------------------------------------------------
 El problema aumenta drásticamente en complejidad. Ahora, el rectángulo formado por dos puntos solo es válido si está **completamente contenido** dentro del polígono definido por los bordes.
 Esto requiere verificar si todos los "píxeles" dentro del rectángulo son válidos (no son exterior).
-Dado que las coordenadas pueden ser enormes, se implementan técnicas avanzadas:
+Dado que las coordenadas pueden ser enormes, se implementan lo siguiente:
 1. **Compresión de Coordenadas**: Mapear un espacio gigante a un grid manejable conservando la topología.
-2. **Flood Fill (BFS)**: Para distinguir qué partes del grid comprimido son "exterior" y cuáles "interior".
+2. **(BFS)**: Para distinguir qué partes del grid comprimido son "exterior" y cuáles "interior".
 3. **Prefix Sum 2D (Tablas de Suma)**: Para verificar la validez de un área rectangular en tiempo constante O(1).
 ------------------------------
 PATRONES Y DISEÑOS UTILIZADOS

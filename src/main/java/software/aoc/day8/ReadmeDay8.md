@@ -18,12 +18,12 @@ El diseño destaca por el uso de estructuras de datos inmutables y la delegació
 -PATRONES CREACIONALES
 -------------------------------------------------------------------------------------------------------------------------------------
 *Static Factory Method:
-- [cite_start]En `loadCode`: Para centralizar la lectura de archivos[cite: 153].
+- En `loadCode`: Para centralizar la lectura de archivos[cite: 153].
 - En `Point3D.parse`: Método estático que encapsula la lógica de conversión de String a Objeto, actuando como una fábrica ligera de puntos.
 --------------------------------------------------------------------------------------------------------------------------------------
 -PATRONES COMPORTAMIENTO
 -------------------------------------------------------------------------------------------------------------------------------------
-[cite_start]*Iterator: Uso explícito mediante bucles `for` para recorrer la lista de conexiones y procesar la fusión de grupos[cite: 97].
+*Iterator: Uso explícito mediante bucles `for` para recorrer la lista de conexiones y procesar la fusión de grupos[cite: 97].
 *Strategy (Implícito): El uso de `Comparator.comparingLong` define la estrategia de ordenación de las conexiones basada
 en la distancia.
 ---------------------------------------------------------------------------------------------------------------------------------------
