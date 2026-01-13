@@ -52,7 +52,7 @@ public class CircuitManager {
         return true;
     }
 
-    // Método usado en Day 8A
+
     public List<Integer> getAllCircuitSizes() {
         Map<Integer, Integer> sizesByRoot = new HashMap<>();
         for (int i = 0; i < parent.length; i++) {
@@ -62,7 +62,7 @@ public class CircuitManager {
         return new ArrayList<>(sizesByRoot.values());
     }
 
-    // Método usado en Day 8B
+
     public int getComponentCount() {
         return componentCount;
     }

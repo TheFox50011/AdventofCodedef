@@ -1,6 +1,5 @@
 package software.aoc.day2.a;
 
-import java.util.List;
 
 public class MainDay2A {
     public static void main(String[] args) {
