@@ -29,4 +29,19 @@ public class Day5ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "10-20",
+                "",
+                "5",
+                "15",
+                "25"
+        );
+
+        long resultado = SolveDay5A.calculateFreshIngredients(mockInput);
+
+        assertEquals(1, resultado, "Debería encontrar 1 ingrediente fresco (el 15)");
+    }
 }

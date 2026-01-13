@@ -32,7 +32,7 @@ DISEÑOS
 *Abstracción: SolveDay1A expone solo lo esencial (CalculatePassword), ocultando los detalles mediante  un private (applyRotation).
 *Modularidad: El código está dividido en clases con responsabilidades únicas, lo que facilita la modificación y el mantenimiento.
 *Clean Code: Se evitan comentarios excesivos mediante el uso de nomenclatura clara, haciendo el código autoexplicativo.
---------------------------------------------------------------------------------------------------------------------------
+------.--------------------------------------------------------------------------------------------------------------------
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -84,7 +84,8 @@ En esta Parte lo podemos encontrar en en el método privado moveOneClick.
 'Day1Main': Su única razón para cambiar es si se modifica la forma de entrada/salida (ej. leer de consola en vez de archivo).
 'SolveDay1': Su única razón para cambiar es si varían las reglas matemáticas del movimiento (ej. si el dial cambia de tamaño 100 a 200).
 *DRY (Don't Repeat Yourself): La lógica matemática de la rotación (sumar/restar y aplicar módulo) está encapsulada en 
-    un único método privado ('applyRotation' en Parte A, 'moveOneClick' en Parte B). El bucle principal reutiliza esta lógica en cada iteración en lugar de duplicar la fórmula.
+    un único método privado ('applyRotation' en Parte A, 'moveOneClick' en Parte B). 
+El bucle principal reutiliza esta lógica en cada iteración en lugar de duplicar la fórmula.
 *KISS (Keep It Simple, Stupid):En lugar de crear una jerarquía de clases para 'Direction' (con polimorfismo para Izquierda/Derecha)
 se utiliza un simple 'switch expression' con tipos primitivos('char', 'int'), lo cual es suficiente y más eficiente para este problema.
 *YAGNI (You Aren't Gonna Need It): El código no implementa validaciones o estructuras para casos no solicitados 

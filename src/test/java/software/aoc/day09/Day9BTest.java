@@ -27,4 +27,17 @@ public class Day9BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "0, 0", "0, 1",
+                "1, 0", "1, 1"
+        );
+
+        long resultado = SolveDay9B.solve(mockInput);
+
+        assertEquals(4, resultado, "Debería encontrar el cuadrado válido de área 4");
+    }
 }

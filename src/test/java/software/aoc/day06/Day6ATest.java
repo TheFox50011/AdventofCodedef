@@ -28,4 +28,15 @@ public class Day6ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "1 ",
+                "2 ",
+                "+"
+        );
+        long resultado = SolveDay6A.calculateGrandTotal(mockInput);
+        assertEquals(3, resultado);
+    }
 }

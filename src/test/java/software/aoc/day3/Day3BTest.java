@@ -30,8 +30,15 @@ public class Day3BTest {
         System.out.println("El valor es: " + resultado);
         System.out.println("--------------------------------------------------");
 
-        // 5. Comprobar que da el resutlado deseado
-        // La condicion actual es un ejemplo
+
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
+    }
+    @Test
+    void testLogicWithExample() {
+
+        String inputLargo = "987654321098765"; // > 12 chars
+        List<String> mockInput = List.of(inputLargo);
+        long resultado = SolveDay3B.calculateTotalJoltage(mockInput);
+        assertTrue(resultado > 0);
     }
 }

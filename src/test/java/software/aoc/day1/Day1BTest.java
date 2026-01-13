@@ -25,4 +25,13 @@ public class Day1BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of("R 60");
+
+        int resultado = SolveDay1B.CalculatePassword(mockInput);
+
+        assertEquals(1, resultado, "Debería detectar que pasó por el 0 una vez");
+    }
 }

@@ -30,4 +30,18 @@ public class Day4ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+
+        List<String> mockInput = List.of(
+                "@@@",
+                "@.@",
+                "@@@"
+        );
+
+        long resultado = SolveDay4A.countAccessibleRolls(mockInput);
+
+        assertEquals(4, resultado, "Deberian ser 4 las @ accesibles");
+    }
 }

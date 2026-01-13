@@ -2,6 +2,7 @@ package software.aoc.day11;
 
 import org.junit.jupiter.api.Test;
 import software.aoc.day11.a.SolveDay11A;
+import software.aoc.day11.b.SolveDay11B;
 import software.aoc.day8.a.SolveDay8A;
 
 import java.util.List;
@@ -26,5 +27,17 @@ public class Day11ATest {
         System.out.println("--------------------------------------------------");
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
+    }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "svr: dac fft",
+                "dac: fft",
+                "fft: out"
+        );
+
+        long resultado = SolveDay11B.solve(mockInput);
+        assertEquals(1, resultado, "Debería encontrar 2 caminos válidos totales cruzando los nodos requeridos");
     }
 }

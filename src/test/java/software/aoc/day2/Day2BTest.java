@@ -30,4 +30,13 @@ public class Day2BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+
+    @Test
+    void testLogicWithExample() {
+
+        String mockInput = "123123-123123,123456-123456";
+        long resultado = SolveDay2B.calculateInvalidIdsSum(mockInput);
+        assertEquals(123123, resultado, "Debería identificar 123123 como inválido por repetición de bloque");
+
+    }
 }

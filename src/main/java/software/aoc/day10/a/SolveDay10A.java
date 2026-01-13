@@ -35,7 +35,7 @@ public class SolveDay10A {
 
         if (start == target) return 0;
 
-        // BFS initialization
+
         Queue<Long> queue = new ArrayDeque<>();
         queue.add(start);
 
@@ -66,6 +66,6 @@ public class SolveDay10A {
             }
         }
 
-        return -1; // Unreachable
+        return -1;
     }
 }

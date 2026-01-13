@@ -3,6 +3,7 @@ package software.aoc.day10;
 import org.junit.jupiter.api.Test;
 import software.aoc.day10.a.SolveDay10A;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,5 +29,15 @@ public class Day10ATest {
         System.out.println("--------------------------------------------------");
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
+    }
+    @Test
+    void testLogicWithExample() {
+
+
+        List<String> mockInput = List.of(
+                "[##] (0) (1)"
+        );
+        long resultado = SolveDay10A.solve(mockInput);
+        assertEquals(2, resultado, "Debería necesitar 2 pulsaciones (una a cada botón) para llegar al estado [##]");
     }
 }

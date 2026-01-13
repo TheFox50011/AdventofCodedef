@@ -29,4 +29,15 @@ public class Day7BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+        List<String> mockInput = List.of(
+                ".S.",
+                ".^."
+        );
+
+        long resultado = SolveDay7B.calculateTotalTimelines(mockInput);
+
+        assertEquals(2, resultado, "El camino debería dividirse en 2 timelines distintos");
+    }
 }

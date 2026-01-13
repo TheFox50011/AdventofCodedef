@@ -31,4 +31,18 @@ public class Day6BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+
+        List<String> mockInput = List.of(
+                "1",
+                "2",
+                "+"
+        );
+
+        long resultado = SolveDay6B.calculateGrandTotal(mockInput);
+
+        assertEquals(12, resultado, "Debería leer verticalmente los dígitos formando el 12");
+    }
 }

@@ -29,4 +29,11 @@ public class Day2ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        String inputData = "10-12,20-23";
+        long resultado = SolveDay2A.calculateInvalidIdsSum(inputData);
+        assertEquals(33, resultado, "La suma de 11 + 22 debería ser 33");
+    }
 }

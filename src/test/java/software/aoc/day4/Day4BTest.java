@@ -32,4 +32,16 @@ public class Day4BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "@@@",
+                "@.@",
+                "@@@"
+        );
+
+        long resultado = SolveDay4B.calculateTotalRolls(mockInput);
+        assertEquals(8, resultado);
+    }
 }

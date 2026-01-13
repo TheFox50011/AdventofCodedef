@@ -31,4 +31,15 @@ public class Day10BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "{2,2} (0) (1) (0,1)"
+        );
+
+        long resultado = SolveDay10B.solve(mockInput);
+
+        assertEquals(2, resultado, "El algoritmo debería encontrar la solución óptima de 2 pulsaciones usando el botón compartido");
+    }
 }

@@ -30,4 +30,11 @@ public class Day3ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of("195");
+        long resultado = SolveDay3A.calculateTotalJoltage(mockInput);
+        assertEquals(95, resultado, "El joltaje máximo de 195 debería ser 95");
+    }
 }

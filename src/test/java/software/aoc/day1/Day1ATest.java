@@ -23,4 +23,11 @@ class Day1ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of("R50", "L50", "R50");
+        int resultado = SolveDay1A.CalculatePassword(mockInput);
+        assertEquals(2, resultado, "La lógica debería contar 2 aterrizajes en la posición 0");
+    }
 }

@@ -32,4 +32,16 @@ public class Day5BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+
+        List<String> mockInput = List.of(
+                "1-5",
+                "4-8"
+        );
+        long resultado = SolveDay5B.calculateTotalFreshIngredients(mockInput);
+
+        assertEquals(8, resultado, "La unión de 1-5 y 4-8 debería cubrir 8 valores");
+    }
 }

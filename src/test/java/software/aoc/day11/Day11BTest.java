@@ -29,4 +29,19 @@ public class Day11BTest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "svr: dac fft",
+                "dac: fft",
+                "fft: out"
+        );
+
+        long resultado = SolveDay11B.solve(mockInput);
+
+        assertEquals(1, resultado, "Debería calcular 1 ruta válida sin entrar en bucles infinitos");
+    }
+
 }

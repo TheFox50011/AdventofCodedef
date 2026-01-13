@@ -27,4 +27,16 @@ public class Day9ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                "0, 0",
+                "2, 3"
+        );
+
+        long resultado = SolveDay9A.solve(mockInput);
+
+        assertEquals(12, resultado, "El área del rectángulo debería ser 3x4 = 12");
+    }
 }

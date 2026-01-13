@@ -29,4 +29,20 @@ public class Day8ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+        List<String> mockInput = List.of(
+                "0,0,0",
+                "1,0,0",
+                "10,0,0",
+                "11,0,0",
+                "100,0,0"
+        );
+
+        long resultado = SolveDay8A.solve(mockInput);
+
+        assertEquals(5, resultado, "El producto de los tamaños de grupos (2, 2, 1) debería ser 5");
+    }
+
+
 }

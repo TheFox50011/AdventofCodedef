@@ -27,4 +27,16 @@ public class Day7ATest {
 
         assertTrue(resultado >= 0, "El resultado debería ser un número positivo");
     }
+    @Test
+    void testLogicWithExample() {
+
+        List<String> mockInput = List.of(
+                ".S.",
+                ".^."
+        );
+
+        long resultado = SolveDay7A.calculateTotalSplits(mockInput);
+
+        assertEquals(1, resultado, "Debería contar 1 split al encontrar el caracter '^'");
+    }
 }
